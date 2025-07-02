@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura: Global Bio-Digital Twin for Proactive Health</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f8fafc; /* Tailwind gray-50 */
+            color: #1e293b; /* Tailwind gray-800 */
+        }
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes pulseShadow {
+            0% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+            50% { box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3); }
+            100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        }
+        .hover\:pulse-shadow:hover {
+            animation: pulseShadow 1.5s infinite alternate;
+        }
+        .gradient-bg {
+            background: linear-gradient(to right, #4f46e5, #8b5cf6); /* indigo-600 to purple-700 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6 md:px-12 rounded-b-xl">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition-colors">Aura</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#vision" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Our Vision</a></li>
+                    <li><a href="#how-it-works" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">How It Works</a></li>
+                    <li><a href="#content-hub" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Content Hub</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-24 px-6 md:px-12 text-center rounded-b-3xl shadow-xl">
+        <div class="max-w-4xl mx-auto animate-fadeIn">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                Your Future Health, Today.
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90">
+                Introducing Aura: The Global Bio-Digital Twin for Proactive, Personalized Health.
+            </p>
+            <button class="bg-white text-indigo-700 hover:bg-indigo-100 font-bold py-4 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50">
+                Discover Your Digital Twin
+            </button>
+        </div>
+    </section>
+
+    <!-- Our Vision Section -->
+    <section id="vision" class="py-20 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-10">Our Vision: A World of Proactive Health</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+                Aura is transforming healthcare from reactive treatment to proactive prevention. We believe everyone deserves a personalized roadmap to optimal health, guided by a dynamic digital replica of their unique biology.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-indigo-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 hover:pulse-shadow">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Predictive Insights</h3>
+                    <p class="text-gray-700">Anticipate health challenges years in advance with AI-powered simulations.</p>
+                </div>
+                <div class="p-6 bg-indigo-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 hover:pulse-shadow">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Personalized Action</h3>
+                    <p class="text-gray-700">Receive tailored recommendations for diet, exercise, and lifestyle.</p>
+                </div>
+                <div class="p-6 bg-indigo-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 hover:pulse-shadow">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Global Accessibility</h3>
+                    <p class="text-gray-700">Leveraging ubiquitous tech to bring advanced prevention to everyone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section (Simplified) -->
+    <section id="how-it-works" class="py-20 px-6 md:px-12 bg-gray-100 rounded-t-3xl shadow-inner">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">How Your Bio-Digital Twin Works</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h3 class="text-3xl font-semibold text-indigo-700 mb-4">1. Data Ingestion</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Aura securely integrates with your existing smart devices (wearables, smartphones) to collect continuous, non-invasive health data. This forms the foundation of your unique digital twin.
+                    </p>
+                    <h3 class="text-3xl font-semibold text-indigo-700 mb-4">2. AI Modeling & Prediction</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Our advanced AI builds a dynamic, constantly evolving digital replica of your biology. It analyzes patterns, identifies vulnerabilities, and simulates future health scenarios to predict potential risks years ahead.
+                    </p>
+                    <h3 class="text-3xl font-semibold text-indigo-700 mb-4">3. Proactive Guidance</h3>
+                    <p class="text-lg text-gray-700">
+                        Receive highly personalized recommendations for diet, exercise, sleep, and lifestyle adjustments. Aura guides you with micro-interventions to steer your health trajectory towards optimal well-being.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center items-center">
+                    <!-- Placeholder for a visual representation of the Bio-Digital Twin -->
+                    <img src="https://placehold.co/400x400/6366f1/ffffff?text=Bio-Digital+Twin+Concept" alt="Bio-Digital Twin Concept Illustration" class="rounded-full shadow-xl border-4 border-indigo-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Hub Section -->
+    <section id="content-hub" class="py-20 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">Aura Insights: Our Content Hub</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Example Article 1 - Now links to the full article below -->
+                <article class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/9ca3af/ffffff?text=AI+Health" alt="AI in Health" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">The Future of Health: How AI is Revolutionizing Prevention</h3>
+                        <p class="text-gray-700 mb-4">
+                            Explore how artificial intelligence is moving beyond diagnostics to predict and prevent illness, creating a new era of personalized wellness.
+                        </p>
+                        <a href="#article-ai-prevention" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">Read More &rarr;</a>
+                    </div>
+                </article>
+                <!-- Example Article 2 -->
+                <article class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Longevity" alt="Longevity Research" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Unlocking Longevity: Your Bio-Digital Twin as a Guide</h3>
+                        <p class="text-gray-700 mb-4">
+                            Understand how a digital replica of your biology can provide a roadmap to a longer, healthier, and more vibrant life.
+                        </p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">Read More &rarr;</a>
+                    </div>
+                </article>
+                <!-- Example Article 3 -->
+                <article class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/d1d5db/ffffff?text=Data+Privacy" alt="Data Privacy" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Your Health Data, Your Control: Aura's Privacy Promise</h3>
+                        <p class="text-gray-700 mb-4">
+                            Learn about the robust security measures and ethical guidelines that protect your sensitive health information with Aura.
+                        </p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">Read More &rarr;</a>
+                    </div>
+                </article>
+                <!-- Add more articles here following the same structure -->
+            </div>
+            <div class="text-center mt-16">
+                <button class="bg-indigo-600 text-white hover:bg-indigo-700 font-bold py-4 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50">
+                    View All Insights
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Article Section (Example) -->
+    <section id="article-ai-prevention" class="py-20 px-6 md:px-12 bg-gray-100 rounded-t-3xl shadow-inner">
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">The Future of Health: How AI is Revolutionizing Prevention</h1>
+            <p class="text-gray-600 text-sm mb-8">Published: July 2, 2025 | By Aura Insights Team</p>
+
+            <img src="https://placehold.co/800x450/9ca3af/ffffff?text=AI+Revolutionizing+Health" alt="AI Revolutionizing Health" class="w-full rounded-lg mb-8 shadow-md">
+
+            <p class="text-lg text-gray-800 mb-6 leading-relaxed">
+                For decades, healthcare has largely operated on a reactive model: we wait until symptoms appear, a diagnosis is made, and then treatment begins. While this approach has saved countless lives, it's inherently a game of catch-up. But what if we could shift the paradigm entirely? What if we could predict illness before it manifests and intervene proactively? This isn't science fiction; it's the promise of Artificial Intelligence in preventative health, and it's the core of what Aura is building.
+            </p>
+
+            <h2 class="text-3xl font-semibold text-indigo-700 mb-4">From Reactive to Predictive: A Paradigm Shift</h2>
+            <p class="text-lg text-gray-800 mb-6 leading-relaxed">
+                The human body is an incredibly complex system, generating vast amounts of data every second – from heart rate variability and sleep patterns to activity levels and even subtle changes in biomarkers. Traditionally, much of this data goes unanalyzed or is only looked at in isolated snapshots. AI, however, thrives on complexity. It can process, interpret, and find hidden correlations within this deluge of information, creating a comprehensive, dynamic picture of your health.
+            </p>
+            <p class="text-lg text-gray-800 mb-6 leading-relaxed">
+                This is where the concept of a "Bio-Digital Twin" becomes revolutionary. Imagine a virtual replica of your unique biological self, constantly updated with real-time data from your wearables and other non-invasive sensors. This digital twin isn't just a static model; it's a living simulation that can predict how your body might respond to different stressors, dietary changes, or exercise routines. It can even forecast the likelihood of developing certain conditions years down the line.
+            </p>
+
+            <h2 class="text-3xl font-semibold text-indigo-700 mb-4">How Aura's AI Empowers You</h2>
+            <ul class="list-disc list-inside text-lg text-gray-800 mb-6 space-y-3">
+                <li>
+                    <strong>Early Warning System:</strong> Aura's AI analyzes subtle shifts in your Bio-Digital Twin, identifying early indicators of potential health issues long before they become noticeable symptoms. This allows for timely, targeted interventions.
+                </li>
+                <li>
+                    <strong>Hyper-Personalized Guidance:</strong> Generic health advice doesn't work for everyone. Your digital twin understands your unique metabolism, genetics, and lifestyle. Aura then translates this understanding into precise, actionable recommendations for diet, exercise, and lifestyle adjustments that are optimized specifically for *your* body.
+                </li>
+                <li>
+                    <strong>Optimized Interventions:</strong> Instead of broad recommendations, Aura can suggest "micro-interventions" – small, specific changes that have a significant impact on your health trajectory. For example, it might recommend a particular nutrient increase based on a predicted deficiency, or a specific type of exercise to mitigate a cardiovascular risk identified by your twin.
+                </li>
+                <li>
+                    <strong>Continuous Learning:</strong> Your Bio-Digital Twin is always evolving. As you interact with Aura and your body responds to recommendations, the AI learns and refines its models, making its predictions and guidance even more accurate over time.
+                </li>
+            </ul>
+
+            <h2 class="text-3xl font-semibold text-indigo-700 mb-4">The Impact: A Healthier Global Future</h2>
+            <p class="text-lg text-gray-800 mb-6 leading-relaxed">
+                The implications of this shift are profound. For individuals, it means greater control over their health, reduced anxiety about the unknown, and the ability to live a longer, healthier, and more fulfilling life. For healthcare systems, it means a significant reduction in the burden of chronic diseases, more efficient resource allocation, and a focus on wellness rather than illness.
+            </p>
+            <p class="text-lg text-gray-800 mb-6 leading-relaxed">
+                Aura is committed to making this advanced preventative medicine accessible globally, leveraging existing technology to empower everyone with their own Bio-Digital Twin. The future of health isn't just about treating sickness; it's about cultivating well-being from the ground up, with AI as your most powerful ally.
+            </p>
+
+            <div class="text-center mt-10">
+                <a href="#content-hub" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center">
+                    &larr; Back to Aura Insights
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Newsletter Signup -->
+    <section id="contact" class="gradient-bg text-white py-20 px-6 md:px-12 rounded-t-3xl shadow-xl">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 drop-shadow-lg">Join the Future of Health!</h2>
+            <p class="text-xl mb-10 opacity-90">
+                Be among the first to experience Aura. Sign up for early access and exclusive updates.
+            </p>
+            <form class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    class="w-full md:w-2/3 p-4 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 transition-all duration-300 shadow-md"
+                    aria-label="Email for early access"
+                />
+                <button
+                    type="submit"
+                    class="bg-white text-indigo-700 hover:bg-indigo-100 font-bold py-4 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 w-full md:w-auto"
+                >
+                    Sign Up Now
+                </button>
+            </form>
+            <p class="text-sm mt-6 opacity-80">No credit card required. We respect your privacy.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10 px-6 md:px-12 rounded-t-xl">
+        <div class="max-w-7xl mx-auto text-center text-sm">
+            <p>&copy; <span id="current-year"></span> Aura. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Basic form submission simulation (for local use, won't send email)
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value;
+            if (email) {
+                alert('Thank you for your interest! We will notify you at ' + email + ' for early access to Aura.');
+                emailInput.value = ''; // Clear the input
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+</body>
+</html>
