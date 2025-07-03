@@ -24,68 +24,100 @@
         .animate-fadeIn {
             animation: fadeIn 0.8s ease-out forwards;
         }
-        @keyframes pulseShadow {
-            0% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-            50% { box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3); }
-            100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
-        .hover\:pulse-shadow:hover {
-            animation: pulseShadow 1.5s infinite alternate;
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
-        .gradient-bg {
-            background: linear-gradient(to right, #4f46e5, #8b5cf6); /* indigo-600 to purple-700 */
+        @keyframes scaleUp {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .animate-scaleUp {
+            animation: scaleUp 0.6s ease-out forwards;
+        }
+        .gradient-hero {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6); /* Stronger indigo to purple */
+        }
+        .gradient-cta {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed); /* Indigo to darker purple */
+        }
+        .button-primary {
+            background: linear-gradient(to right, #8b5cf6, #6366f1); /* Purple to Indigo */
+            transition: all 0.3s ease;
+        }
+        .button-primary:hover {
+            background: linear-gradient(to right, #7c3aed, #4f46e5); /* Darker on hover */
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-md py-4 px-6 md:px-12 rounded-b-xl">
+    <header class="bg-white shadow-lg py-4 px-6 md:px-12 rounded-b-2xl z-20 relative">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition-colors">Aura</a>
+            <a href="#" class="text-3xl font-extrabold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition-colors transform hover:scale-105">Aura</a>
             <nav>
                 <ul class="flex space-x-6">
-                    <li><a href="#vision" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Our Vision</a></li>
-                    <li><a href="#how-it-works" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">How It Works</a></li>
-                    <li><a href="#content-hub" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Content Hub</a></li>
-                    <li><a href="#contact" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Contact</a></li>
+                    <li><a href="#vision" class="text-gray-700 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Our Vision</a></li>
+                    <li><a href="#how-it-works" class="text-gray-700 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">How It Works</a></li>
+                    <li><a href="#content-hub" class="text-gray-700 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Content Hub</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-indigo-700 font-medium transition-colors rounded-md p-2 hover:bg-gray-100">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-24 px-6 md:px-12 text-center rounded-b-3xl shadow-xl">
-        <div class="max-w-4xl mx-auto animate-fadeIn">
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+    <section class="gradient-hero text-white py-28 px-6 md:px-12 text-center rounded-b-4xl shadow-2xl relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm10-10h-2v4h-4v2h4v4h2v-4h4v-2h-4zm-28 0h-2v4h-4v2h4v4h2v-4h4v-2h-4zm10 10h-2v4h-4v2h4v4h2v-4h4v-2h-4z\' fill=\'%23ffffff\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); background-size: 30px 30px;"></div>
+        <div class="max-w-5xl mx-auto relative z-10 animate-fadeIn">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg animate-slideInLeft" style="animation-delay: 0.2s;">
                 Your Future Health, Today.
             </h1>
-            <p class="text-xl md:text-2xl mb-10 opacity-90">
+            <p class="text-xl md:text-2xl mb-12 opacity-90 animate-slideInRight" style="animation-delay: 0.4s;">
                 Introducing Aura: The Global Bio-Digital Twin for Proactive, Personalized Health.
             </p>
-            <button class="bg-white text-indigo-700 hover:bg-indigo-100 font-bold py-4 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50">
+            <button class="button-primary text-white font-bold py-4 px-10 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 animate-scaleUp" style="animation-delay: 0.6s;">
                 Discover Your Digital Twin
             </button>
         </div>
     </section>
 
     <!-- Our Vision Section -->
-    <section id="vision" class="py-20 px-6 md:px-12 bg-white">
+    <section id="vision" class="py-24 px-6 md:px-12 bg-white">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-900 mb-10">Our Vision: A World of Proactive Health</h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">Our Vision: A World of Proactive Health</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-16">
                 Aura is transforming healthcare from reactive treatment to proactive prevention. We believe everyone deserves a personalized roadmap to optimal health, guided by a dynamic digital replica of their unique biology.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 bg-indigo-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 hover:pulse-shadow">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-8 bg-indigo-50 rounded-2xl shadow-xl card-hover-effect transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <img src="https://placehold.co/80x80/6366f1/ffffff?text=Predictive+Person" alt="Person receiving predictive insights" class="w-16 h-16 rounded-full object-cover">
+                    </div>
                     <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Predictive Insights</h3>
                     <p class="text-gray-700">Anticipate health challenges years in advance with AI-powered simulations.</p>
                 </div>
-                <div class="p-6 bg-indigo-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 hover:pulse-shadow">
+                <div class="p-8 bg-indigo-50 rounded-2xl shadow-xl card-hover-effect transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <img src="https://placehold.co/80x80/8b5cf6/ffffff?text=Action+Person" alt="Person taking personalized action" class="w-16 h-16 rounded-full object-cover">
+                    </div>
                     <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Personalized Action</h3>
                     <p class="text-gray-700">Receive tailored recommendations for diet, exercise, and lifestyle.</p>
                 </div>
-                <div class="p-6 bg-indigo-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 hover:pulse-shadow">
+                <div class="p-8 bg-indigo-50 rounded-2xl shadow-xl card-hover-effect transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <img src="https://placehold.co/80x80/06b6d4/ffffff?text=Global+People" alt="Diverse group of people" class="w-16 h-16 rounded-full object-cover">
+                    </div>
                     <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Global Accessibility</h3>
                     <p class="text-gray-700">Leveraging ubiquitous tech to bring advanced prevention to everyone.</p>
                 </div>
@@ -94,74 +126,139 @@
     </section>
 
     <!-- How It Works Section (Simplified) -->
-    <section id="how-it-works" class="py-20 px-6 md:px-12 bg-gray-100 rounded-t-3xl shadow-inner">
+    <section id="how-it-works" class="py-24 px-6 md:px-12 bg-gray-100 rounded-t-4xl shadow-inner">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">How Your Bio-Digital Twin Works</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-                <div class="md:w-1/2 text-center md:text-left">
-                    <h3 class="text-3xl font-semibold text-indigo-700 mb-4">1. Data Ingestion</h3>
-                    <p class="text-lg text-gray-700 mb-6">
-                        Aura securely integrates with your existing smart devices (wearables, smartphones) to collect continuous, non-invasive health data. This forms the foundation of your unique digital twin.
-                    </p>
-                    <h3 class="text-3xl font-semibold text-indigo-700 mb-4">2. AI Modeling & Prediction</h3>
-                    <p class="text-lg text-gray-700 mb-6">
-                        Our advanced AI builds a dynamic, constantly evolving digital replica of your biology. It analyzes patterns, identifies vulnerabilities, and simulates future health scenarios to predict potential risks years ahead.
-                    </p>
-                    <h3 class="text-3xl font-semibold text-indigo-700 mb-4">3. Proactive Guidance</h3>
-                    <p class="text-lg text-gray-700">
-                        Receive highly personalized recommendations for diet, exercise, sleep, and lifestyle adjustments. Aura guides you with micro-interventions to steer your health trajectory towards optimal well-being.
-                    </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-16">
+                <div class="md:w-1/2 text-center md:text-left animate-slideInLeft">
+                    <div class="mb-10 p-6 bg-white rounded-2xl shadow-xl card-hover-effect transition-all duration-300 flex items-start gap-4">
+                        <img src="https://placehold.co/60x60/3b82f6/ffffff?text=Wearable+Data" alt="Person with wearable device" class="w-12 h-12 rounded-full object-cover flex-shrink-0 mt-1">
+                        <div>
+                            <h3 class="text-3xl font-semibold text-indigo-700 mb-4">1. Data Ingestion</h3>
+                            <p class="text-lg text-gray-700">
+                                Aura securely integrates with your existing smart devices (wearables, smartphones) to collect continuous, non-invasive health data. This forms the foundation of your unique digital twin.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mb-10 p-6 bg-white rounded-2xl shadow-xl card-hover-effect transition-all duration-300 flex items-start gap-4">
+                        <img src="https://placehold.co/60x60/a855f7/ffffff?text=AI+Analyst" alt="AI analyzing data" class="w-12 h-12 rounded-full object-cover flex-shrink-0 mt-1">
+                        <div>
+                            <h3 class="text-3xl font-semibold text-indigo-700 mb-4">2. AI Modeling & Prediction</h3>
+                            <p class="text-lg text-gray-700">
+                                Our advanced AI builds a dynamic, constantly evolving digital replica of your biology. It analyzes patterns, identifies vulnerabilities, and simulates future health scenarios to predict potential risks years ahead.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white rounded-2xl shadow-xl card-hover-effect transition-all duration-300 flex items-start gap-4">
+                        <img src="https://placehold.co/60x60/0ea5e9/ffffff?text=Guidance+Person" alt="Person receiving guidance" class="w-12 h-12 rounded-full object-cover flex-shrink-0 mt-1">
+                        <div>
+                            <h3 class="text-3xl font-semibold text-indigo-700 mb-4">3. Proactive Guidance</h3>
+                            <p class="text-lg text-gray-700">
+                                Receive highly personalized recommendations for diet, exercise, sleep, and lifestyle adjustments. Aura guides you with micro-interventions to steer your health trajectory towards optimal well-being.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center items-center">
+                <div class="md:w-1/2 flex justify-center items-center animate-slideInRight">
                     <!-- Placeholder for a visual representation of the Bio-Digital Twin -->
-                    <img src="https://placehold.co/400x400/6366f1/ffffff?text=Bio-Digital+Twin+Concept" alt="Bio-Digital Twin Concept Illustration" class="rounded-full shadow-xl border-4 border-indigo-300">
+                    <img src="https://placehold.co/450x450/6366f1/ffffff?text=Bio-Digital+Twin+Concept" alt="Bio-Digital Twin Concept Illustration" class="rounded-full shadow-2xl border-8 border-indigo-300 transform hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Content Hub Section -->
-    <section id="content-hub" class="py-20 px-6 md:px-12 bg-white">
+    <section id="content-hub" class="py-24 px-6 md:px-12 bg-white">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">Aura Insights: Our Content Hub</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Example Article 1 - Now links to the full article below -->
-                <article class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/9ca3af/ffffff?text=AI+Health" alt="AI in Health" class="w-full h-48 object-cover">
+                <article class="bg-gray-50 rounded-2xl shadow-xl overflow-hidden card-hover-effect transition-all duration-300">
+                    <img src="https://placehold.co/600x400/9ca3af/ffffff?text=AI+Doctor+Patient" alt="AI in Health assisting doctor and patient" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-900 mb-3">The Future of Health: How AI is Revolutionizing Prevention</h3>
                         <p class="text-gray-700 mb-4">
                             Explore how artificial intelligence is moving beyond diagnostics to predict and prevent illness, creating a new era of personalized wellness.
                         </p>
-                        <a href="#article-ai-prevention" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">Read More &rarr;</a>
+                        <a href="#article-ai-prevention" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center group">
+                            Read More
+                            <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
                     </div>
                 </article>
                 <!-- Example Article 2 -->
-                <article class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Longevity" alt="Longevity Research" class="w-full h-48 object-cover">
+                <article class="bg-gray-50 rounded-2xl shadow-xl overflow-hidden card-hover-effect transition-all duration-300">
+                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Elderly+Healthy" alt="Elderly person looking healthy and active" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-900 mb-3">Unlocking Longevity: Your Bio-Digital Twin as a Guide</h3>
                         <p class="text-gray-700 mb-4">
                             Understand how a digital replica of your biology can provide a roadmap to a longer, healthier, and more vibrant life.
                         </p>
-                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">Read More &rarr;</a>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center group">
+                            Read More
+                            <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
                     </div>
                 </article>
                 <!-- Example Article 3 -->
-                <article class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/d1d5db/ffffff?text=Data+Privacy" alt="Data Privacy" class="w-full h-48 object-cover">
+                <article class="bg-gray-50 rounded-2xl shadow-xl overflow-hidden card-hover-effect transition-all duration-300">
+                    <img src="https://placehold.co/600x400/d1d5db/ffffff?text=Secure+Data+Person" alt="Person interacting with secure data" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-900 mb-3">Your Health Data, Your Control: Aura's Privacy Promise</h3>
                         <p class="text-gray-700 mb-4">
                             Learn about the robust security measures and ethical guidelines that protect your sensitive health information with Aura.
                         </p>
-                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">Read More &rarr;</a>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center group">
+                            Read More
+                            <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
                     </div>
                 </article>
-                <!-- Add more articles here following the same structure -->
+                <!-- New Example Article 4 -->
+                <article class="bg-gray-50 rounded-2xl shadow-xl overflow-hidden card-hover-effect transition-all duration-300">
+                    <img src="https://placehold.co/600x400/fcd34d/ffffff?text=Active+People" alt="People engaging in wellness activities" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Top Wellness Trends for 2025: What Aura Predicts</h3>
+                        <p class="text-gray-700 mb-4">
+                            Dive into the cutting-edge health and wellness trends that Aura's predictive AI is highlighting for the coming year.
+                        </p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center group">
+                            Read More
+                            <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+                <!-- New Example Article 5 -->
+                <article class="bg-gray-50 rounded-2xl shadow-xl overflow-hidden card-hover-effect transition-all duration-300">
+                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Biohacker+Person" alt="Person engaged in biohacking" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Biohacking Your Health: Aura's Approach to Optimization</h3>
+                        <p class="text-gray-700 mb-4">
+                            Discover how Aura leverages your unique data to help you optimize your body's performance and resilience.
+                        </p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center group">
+                            Read More
+                            <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+                <!-- New Example Article 6 -->
+                <article class="bg-gray-50 rounded-2xl shadow-xl overflow-hidden card-hover-effect transition-all duration-300">
+                    <img src="https://placehold.co/600x400/60a5fa/ffffff?text=Mindful+Person" alt="Person practicing mindfulness/meditation" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">The Mind-Body Connection: How Aura Supports Mental Wellbeing</h3>
+                        <p class="text-gray-700 mb-4">
+                            Explore how your Bio-Digital Twin can offer insights into your mental health and provide tailored support.
+                        </p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center group">
+                            Read More
+                            <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
             </div>
-            <div class="text-center mt-16">
-                <button class="bg-indigo-600 text-white hover:bg-indigo-700 font-bold py-4 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50">
+            <div class="text-center mt-20">
+                <button class="button-primary text-white font-bold py-4 px-10 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50">
                     View All Insights
                 </button>
             </div>
@@ -169,12 +266,12 @@
     </section>
 
     <!-- Full Article Section (Example) -->
-    <section id="article-ai-prevention" class="py-20 px-6 md:px-12 bg-gray-100 rounded-t-3xl shadow-inner">
-        <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+    <section id="article-ai-prevention" class="py-24 px-6 md:px-12 bg-gray-100 rounded-t-4xl shadow-inner">
+        <div class="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-2xl">
             <h1 class="text-4xl font-bold text-gray-900 mb-6">The Future of Health: How AI is Revolutionizing Prevention</h1>
             <p class="text-gray-600 text-sm mb-8">Published: July 2, 2025 | By Aura Insights Team</p>
 
-            <img src="https://placehold.co/800x450/9ca3af/ffffff?text=AI+Revolutionizing+Health" alt="AI Revolutionizing Health" class="w-full rounded-lg mb-8 shadow-md">
+            <img src="https://placehold.co/800x450/9ca3af/ffffff?text=AI+Doctor+Patient" alt="AI in Health assisting doctor and patient" class="w-full rounded-lg mb-8 shadow-md">
 
             <p class="text-lg text-gray-800 mb-6 leading-relaxed">
                 For decades, healthcare has largely operated on a reactive model: we wait until symptoms appear, a diagnosis is made, and then treatment begins. While this approach has saved countless lives, it's inherently a game of catch-up. But what if we could shift the paradigm entirely? What if we could predict illness before it manifests and intervene proactively? This isn't science fiction; it's the promise of Artificial Intelligence in preventative health, and it's the core of what Aura is building.
@@ -184,6 +281,7 @@
             <p class="text-lg text-gray-800 mb-6 leading-relaxed">
                 The human body is an incredibly complex system, generating vast amounts of data every second – from heart rate variability and sleep patterns to activity levels and even subtle changes in biomarkers. Traditionally, much of this data goes unanalyzed or is only looked at in isolated snapshots. AI, however, thrives on complexity. It can process, interpret, and find hidden correlations within this deluge of information, creating a comprehensive, dynamic picture of your health.
             </p>
+            <img src="https://placehold.co/800x450/6366f1/ffffff?text=Person+with+Data+Overlay" alt="Person with data overlay illustrating Bio-Digital Twin" class="w-full rounded-lg mb-8 shadow-md">
             <p class="text-lg text-gray-800 mb-6 leading-relaxed">
                 This is where the concept of a "Bio-Digital Twin" becomes revolutionary. Imagine a virtual replica of your unique biological self, constantly updated with real-time data from your wearables and other non-invasive sensors. This digital twin isn't just a static model; it's a living simulation that can predict how your body might respond to different stressors, dietary changes, or exercise routines. It can even forecast the likelihood of developing certain conditions years down the line.
             </p>
@@ -203,6 +301,7 @@
                     <strong>Continuous Learning:</strong> Your Bio-Digital Twin is always evolving. As you interact with Aura and your body responds to recommendations, the AI learns and refines its models, making its predictions and guidance even more accurate over time.
                 </li>
             </ul>
+            <img src="https://placehold.co/800x450/8b5cf6/ffffff?text=Happy+Healthy+Person" alt="Happy, healthy person exercising" class="w-full rounded-lg mb-8 shadow-md">
 
             <h2 class="text-3xl font-semibold text-indigo-700 mb-4">The Impact: A Healthier Global Future</h2>
             <p class="text-lg text-gray-800 mb-6 leading-relaxed">
@@ -213,7 +312,7 @@
             </p>
 
             <div class="text-center mt-10">
-                <a href="#content-hub" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center">
+                <a href="#content-hub" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors inline-flex items-center group">
                     &larr; Back to Aura Insights
                 </a>
             </div>
@@ -221,7 +320,7 @@
     </section>
 
     <!-- Call to Action / Newsletter Signup -->
-    <section id="contact" class="gradient-bg text-white py-20 px-6 md:px-12 rounded-t-3xl shadow-xl">
+    <section id="contact" class="gradient-cta text-white py-24 px-6 md:px-12 rounded-t-4xl shadow-2xl">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-8 drop-shadow-lg">Join the Future of Health!</h2>
             <p class="text-xl mb-10 opacity-90">
@@ -236,7 +335,7 @@
                 />
                 <button
                     type="submit"
-                    class="bg-white text-indigo-700 hover:bg-indigo-100 font-bold py-4 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 w-full md:w-auto"
+                    class="button-primary text-white font-bold py-4 px-10 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 w-full md:w-auto"
                 >
                     Sign Up Now
                 </button>
@@ -246,7 +345,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-10 px-6 md:px-12 rounded-t-xl">
+    <footer class="bg-gray-900 text-gray-300 py-12 px-6 md:px-12 rounded-t-2xl">
         <div class="max-w-7xl mx-auto text-center text-sm">
             <p>&copy; <span id="current-year"></span> Aura. All rights reserved.</p>
             <div class="mt-4 space-x-4">
