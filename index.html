@@ -326,12 +326,22 @@
             <p class="text-xl mb-10 opacity-90">
                 Be among the first to experience Aura. Sign up for early access and exclusive updates.
             </p>
-            <form class="flex flex-col md:flex-row justify-center items-center gap-4">
+            <!-- Web3Forms Integration -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <!-- Replace YOUR_WEB3FORMS_ACCESS_KEY_HERE with your actual key from web3forms.com -->
+                <input type="hidden" name="access_key" value="63f02137-ef1f-49f2-80da-4324de663c04">
+                <!-- Optional: Redirect to a thank you page after submission -->
+                <input type="hidden" name="redirect" value="https://yourusername.github.io/aura-website/thank-you.html">
+                <!-- Optional: Subject for the email you receive -->
+                <input type="hidden" name="subject" value="New Aura Website Sign-up!">
+
                 <input
                     type="email"
+                    name="email"  <!-- Important: name attribute for Web3Forms -->
                     placeholder="Enter your email address"
                     class="w-full md:w-2/3 p-4 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 transition-all duration-300 shadow-md"
                     aria-label="Email for early access"
+                    required
                 />
                 <button
                     type="submit"
@@ -359,18 +369,9 @@
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Basic form submission simulation (for local use, won't send email)
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent actual form submission
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value;
-            if (email) {
-                alert('Thank you for your interest! We will notify you at ' + email + ' for early access to Aura.');
-                emailInput.value = ''; // Clear the input
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        });
+        // Removed the alert() as Web3Forms handles submission directly
+        // The form now submits to Web3Forms API, which then redirects (if _redirect is set)
     </script>
 </body>
 </html>
+
